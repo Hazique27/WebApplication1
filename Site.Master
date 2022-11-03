@@ -1,0 +1,135 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication1.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My Portal</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+
+<style>
+.flex-container {
+  display: flex;
+}
+
+.flex-container > div {
+  background-color: #f3f3f300;
+  margin: 1px;
+}
+
+.navbar-inverse {
+    background-color: #9040d9;
+    border-color: #08080800;
+}
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: #100f0f00;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #3330;
+}
+
+.img-div {
+    height: 160px;
+    width: 100%;
+    background-size: cover;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 30%);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+@media only screen and (max-width: 600px) {
+      .test {
+        color: #ffffff;
+        background-color: #00c9c9;
+    }
+      .test1 {
+        color: #ffffff;
+        background-color: #f19d04;
+    }
+      .test2 {
+        color: #ffffff;
+        background-color: #9040d9;
+    }
+      .test3 {
+        color: #ffffff;
+        background-color: #404562;
+    }
+      .test4 {
+        color: #ffffff;
+        background-color: #1c76e7;
+    }
+}
+</style>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">Vodus Merchant</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/" class="test">Guide</a></li>
+                        <li><a runat="server" href="#" class="test1">Learning</a></li>
+                        <li><a runat="server" href="#" class="test2">Updates from Vodus</a></li>
+                        <li><a runat="server" href="#" class="test3">Payment</a></li>
+                        <li><a runat="server" href="#" class="test4">Industry News</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> </p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>
